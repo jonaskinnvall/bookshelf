@@ -2,7 +2,16 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I have learned how to:
+
+- Use the Dialog component from Reach to create a modal
+- Ues event.target.elements to destructure inputs and use in onSubmit function,
+  instead of using useState
+
+I have reiterated on how to:
+
+- Render an app (this time with createRoot in React 18)
+- How to create a form and handle state with useState
 
 ## Background
 
