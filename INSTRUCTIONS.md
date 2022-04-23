@@ -2,7 +2,13 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned how to:
+
+- Work with styled components
+- Use the Emotion CSS library and how it can be used in different ways (styled
+  components, css prop etc.)
+- Set e.g. color and media query variables in another file to reference
+  throughout the styling
 
 ## Background
 
