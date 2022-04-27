@@ -2,7 +2,19 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I reiterated on how to:
+
+- Fetch data and handle errors using the useState and useEffect hooks and
+  derived states
+
+In this exercise I learned how to:
+
+- Create a versatile fetch client, taking an endpoint and perhaps a config
+  object, that can be used in different kinds of fetch requests throughout the
+  application
+
+- Utilize a custom hook to handle fetching, state management etc. and thus clean
+  up code in the component
 
 ## Background
 
