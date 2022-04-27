@@ -8,38 +8,20 @@ import {FaSearch, FaTimes} from 'react-icons/fa'
 import {Input, BookListUL, Spinner} from './components/lib'
 import {BookRow} from './components/book-row'
 import {client} from './utils/api-client'
+import {useAsync} from 'utils/hooks'
 import * as colors from './styles/colors'
 
 function DiscoverBooksScreen() {
-  const [status, setStatus] = React.useState('idle')
   const [queried, setQueried] = React.useState(false)
   const [query, setQuery] = React.useState('')
-  const [data, setData] = React.useState(null)
-  const [error, setError] = React.useState(null)
+  const {data, error, run, isLoading, isError, isSuccess} = useAsync()
 
   React.useEffect(() => {
     if (!queried) return
 
-    setError(null)
-    setStatus('loading')
-    client(`books?query=${encodeURIComponent(query)}`).then(
-      data => {
-        setData(data)
-        setStatus('success')
-      },
-      error => {
-        setError(error)
-        setStatus('error')
-      },
-    )
-
-    setStatus('idle')
+    run(client(`books?query=${encodeURIComponent(query)}`))
     setQueried(false)
-  }, [queried, query])
-
-  const isLoading = status === 'loading' ? true : false
-  const isSuccess = status === 'success' ? true : false
-  const isError = status === 'error' ? true : false
+  }, [queried, query, run])
 
   function handleSearchSubmit(event) {
     event.preventDefault()
