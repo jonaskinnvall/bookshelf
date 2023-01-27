@@ -2,7 +2,17 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned about:
+
+- Authentication in general and specifically about how it can be used in React
+  with some good mental models around that.
+- How it can be a good idea to divide your app into an authenticated and an
+  unauthenticated component that can be rendered depending on if the user is
+  signed in or not.
+  - This let's you not worry as much about if the user is signed in or not
+    throughout the app since it's already handled
+  - It can also help in code-splitting since some part of your app probably
+    never needs rendering if the user is signed in or vice versa
 
 ## Background
 
@@ -176,16 +186,8 @@ solve this loading state issue.
 She mentions you'll need to know that you can set the data directly:
 
 ```javascript
-const {
-  data,
-  error,
-  isIdle,
-  isLoading,
-  isSuccess,
-  isError,
-  run,
-  setData,
-} = useAsync()
+const {data, error, isIdle, isLoading, isSuccess, isError, run, setData} =
+  useAsync()
 
 const doSomething = () => somethingAsync().then(data => setData(data))
 ```
