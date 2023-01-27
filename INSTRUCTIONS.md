@@ -2,7 +2,15 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned about:
+
+- Routing in React using react-router
+- Why it's better to handle redirects on the server and how to do it in local
+  development, when running app with serve and in production in Netlify
+  - Important so that we can send the proper status codes (301 or 302) with the
+    redirects to the browser or search engine. This can't be done on the client
+- How we can use the URL to style or otherwise manipulate our components using
+  React Routers useMatch hook
 
 ## Background
 
