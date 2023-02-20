@@ -15,7 +15,31 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this part I've learned about:
+
+- Cache management and how to handle different parts of it using React Query
+- How to set up queries and mutation functions (with useQuery and useMutation)
+  and how to break those out into useful custom hooks
+- How to handle errors with React Query in different ways
+  - By using the error and isError returns from React Query hooks
+  - Also by configuring React Query to throw on error and let us handle that
+    with our own logic for thrown errors
+- Using the isLoading value returned by React Query to e.g., show the user a
+  loading spinner while the request is made
+- How to prefetch data when a component unmounts (using queryCache.prefetch in
+  effect cleanup) to have an up to date cache when user comes back to that
+  component
+- How to, instead of fetching individual items later on, update the caches for
+  those items when we fetch all of them provided we get all we need. Which lets
+  us load the data immediately when user goes to a specific items page
+  - I.e, I learned how to manipulate different caches when another request has
+    been made using the onSuccess config option and queryCache.setQueryData
+- Adding optimistic updates and reverting to previous state if an error occurs
+  to immediately update the changes a user makes before the server responds with
+  the updates, creating a much snappier experience
+  - Done using the onMutate config option where we get the old cache and then
+    update the the cache with the updates and on error we set it back to the old
+    one
 
 ## Background
 
