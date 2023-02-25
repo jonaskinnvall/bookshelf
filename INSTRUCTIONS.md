@@ -2,7 +2,22 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this part I leared about:
+
+- How the compound components pattern can improve reusability and flexibility of
+  components that otherwise needs to take a bunch of props
+  - This way the component is a lot easier to maintain than before
+  - Solidified my knowledge of how props and children works and can be passed
+    along
+  - Got a better understanding of how the callAll function works (a little
+    explanation in the video)
+- How easily, when using compound components, we can create a base version of
+  one of the compounds and a wrapper around that which renders the base + some
+  default stuff
+  - If user doesn't want the default behavior they can instead call the base
+    component directly
+  - This setup also lets us create all kinds of wrappers, as soon as we have a
+    type that we reuse, that just renders what we need + the base one
 
 ## Background
 
