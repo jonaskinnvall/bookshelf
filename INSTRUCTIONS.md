@@ -2,7 +2,23 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned about:
+
+- How context can be used and implemented in an application
+  - Can be a helpful solution to prop drilling (among other solutions)
+- How we can help the users by creating a useContext hook and a ContextProvider
+  component (in this case useAuth and AuthProvider)
+  - This simplifies how the users can use the context and lets us spearate logic
+    and let the provider manage and provide the relevant state (in this case
+    authentication state)
+- How colocating all global and near global providers in an AppProviders
+  component generally isn't harmless and can help with testing apart from
+  cleaning up app code
+- How easily we can help users clean up some code by creating a useClient hook
+  that "appends" the user token to the client and thus returns an authenticated
+  client to the user
+  - This also colocates all authentication concerns into the same auth-context
+    file
 
 ## Background
 
