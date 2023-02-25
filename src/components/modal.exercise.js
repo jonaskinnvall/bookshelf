@@ -4,6 +4,11 @@ import {jsx} from '@emotion/core'
 import * as React from 'react'
 import {Dialog} from './lib'
 
+const callAll =
+  (...fns) =>
+  (...args) =>
+    fns.forEach(fn => fn?.(...args))
+
 const ModalContext = React.createContext()
 ModalContext.displayName = 'ModalContext'
 
@@ -15,17 +20,13 @@ function Modal(props) {
 function ModalDismissButton({children}) {
   const [, setIsOpen] = React.useContext(ModalContext)
   return React.cloneElement(children, {
-    onClick: () => {
-      setIsOpen(false)
-    },
+    onClick: callAll(() => setIsOpen(false), children.props.onClick),
   })
 }
 function ModalOpenButton({children}) {
   const [, setIsOpen] = React.useContext(ModalContext)
   return React.cloneElement(children, {
-    onClick: () => {
-      setIsOpen(true)
-    },
+    onClick: callAll(() => setIsOpen(true), children.props.onClick),
   })
 }
 function ModalContents(props) {
