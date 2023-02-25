@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import {jsx} from '@emotion/core'
+
 import React from 'react'
 import * as auth from 'auth-provider'
 import {useAsync} from 'utils/hooks'
@@ -65,4 +68,14 @@ function useAuth() {
   return context
 }
 
-export {AuthProvider, useAuth}
+function useClient() {
+  const {
+    user: {token},
+  } = useAuth()
+  return React.useCallback(
+    (endpoint, config) => client(endpoint, {...config, token}),
+    [token],
+  )
+}
+
+export {AuthProvider, useAuth, useClient}
