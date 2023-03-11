@@ -2,7 +2,34 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned about:
+
+- Different approaches to improving performance of our app and how to measure
+  the effect in the devtools to see if it actually was an improvement
+  - Code-splitting can be used to only load the components the user actually
+    need at the time instead of loading the whole app which usually takes a
+    little longer
+    - Done with React.lazy to lazy load the components we want
+    - Can be measured with the coverage part of the dev-tools
+  - In some scenarios we might be pretty ceretain that the user will want to
+    load one of our code-splitted components (e.g., on a log in screen, the user
+    probably wants to log in and thus load the authenticated app)
+    - In those cases we can use webpack magic comments to tell webpack to tell
+      the browser to prefetch that component so when the user needs the
+      component we can grab it from the browser cache instead of fetching it
+  - Memoizing our context value can let us reduce the amount of component
+    re-renders in a significant way
+    - If we memoize our context value in our context provider we can make sure
+      that the value only updates when some part of that state actually updated
+      (in our own provider the value is created again on every render)
+    - This will make sure that ew only trigger re-render of that whole component
+      tree when our context actually updates instead of on every render
+- Setting up performance monitoring with React.Profiler
+  - How we can imporove our understanding and give ourself some more context for
+    the profiling by creating our own prifler component that consumes the
+    React.Profiler which allows us to pass some additional info like metadata
+    about what we're profiling
+  - How to enable profiling in production when using CRA
 
 ## Background
 
