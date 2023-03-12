@@ -2,7 +2,15 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned about:
+
+- Going from fetch on render to render while fetching
+- The waterfall effect that happens when we need to wait for something fetching
+  before we can fetch the next thing
+- How we can move our fetch to just outside of our react component in the same
+  file to run that code as soon as that module loads instead of after the
+  component has rendered, and thus have the fetched data ready when the
+  component has rendered
 
 ## Background
 
