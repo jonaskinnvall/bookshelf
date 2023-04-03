@@ -2,7 +2,16 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In these exercises I learned about:
+
+- How we can go about unit testing different modules
+- How to test and assert HTTP requests using msw
+- How we can test failure cases when an HTTP requests responds with an error
+  status
+  - How we can assert a rejected promise with expect().rejects
+  - How we can catch the error to resolve the promise so we can assert that
+    something else might have been called as a result of the error e.g. a user
+    logout
 
 ## Background
 
