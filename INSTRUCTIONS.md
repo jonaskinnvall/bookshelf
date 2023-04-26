@@ -2,7 +2,20 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In these exercises I learned about:
+
+- Testing components and our custom hooks
+
+  - How we can go about testing components using React Testing Library to really
+    test the way our users will be using the component
+  - How it usually is sufficient to test our hooks by testing our components
+    that utilize those hooks
+  - How some more complicated hooks can be good to test and how we can go about
+    that to test the different scenarios for the hook
+
+- AHA programming and how we can apply that mindset to testing as well
+  - When we feel we have a lot of duplicate (or copy paste) code in our tests,
+    it is time to abstract that into something more useful
 
 ## Background
 
