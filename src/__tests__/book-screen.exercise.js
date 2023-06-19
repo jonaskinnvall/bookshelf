@@ -6,38 +6,29 @@ import {buildUser, buildBook} from 'test/generate'
 import * as auth from 'auth-provider'
 import {AppProviders} from 'context'
 import {App} from 'app'
+import * as usersDB from 'test/data/users'
+import * as booksDB from 'test/data/books'
+import * as listItemsDB from 'test/data/list-items'
 
 afterEach(async () => {
   queryCache.clear()
-  await auth.logout()
+  await Promise.all([
+    auth.logout(),
+    usersDB.reset(),
+    booksDB.reset(),
+    listItemsDB.reset(),
+  ])
 })
 
 test('renders all the book information', async () => {
-  window.localStorage.setItem(auth.localStorageKey, 'test-token')
-
   const user = buildUser()
-  const book = buildBook()
-  window.history.pushState({}, 'page title', `/book/${book.id}`)
+  await usersDB.create(user)
+  const authUser = await usersDB.authenticate(user)
+  window.localStorage.setItem(auth.localStorageKey, authUser.token)
 
-  const originalFetch = window.fetch
-  window.fetch = async (url, config) => {
-    if (url.endsWith('/bootstrap')) {
-      return {
-        ok: true,
-        json: async () => ({
-          user: {...user, token: 'test-token'},
-          listItems: [],
-        }),
-      }
-    } else if (url.endsWith(`/books/${book.id}`)) {
-      return {
-        ok: true,
-        json: async () => ({book}),
-      }
-    }
-    console.log(url, config)
-    originalFetch(url, config)
-  }
+  const book = buildBook()
+  await booksDB.create(book)
+  window.history.pushState({}, 'page title', `/book/${book.id}`)
 
   render(<App />, {wrapper: AppProviders})
 
