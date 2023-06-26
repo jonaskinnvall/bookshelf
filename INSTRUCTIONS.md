@@ -2,7 +2,27 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In these exercises I learned about:
+
+- How integration tests usually look (rendering our App component and push
+  history to whichever page/screen we want etc. )
+- What kind of test cases could be good to cover for a screen/page
+- That creating a mock server for our fetch requests using MSW can be a really
+  good idea
+  - How to set that up
+- How we can create test utilities
+  - Ones of the more "global" kind that we can put in a "test-utils" file, like
+    our own render function that wrapps our component with our providers etc.
+    that also exports everything else from React Testing Library
+  - Ones that are more relevant for the tests written for at specific screen
+    that we can keep in that test file
+    - These can utilise and build upon the global ones but handle more specific
+      use-cases
+- How we can write error state tests and use 'toMatchInlineSnapshot' to assert
+  those
+  - Additional server handlers might be needed for these kinds of tests to throw
+    errors etc. These has to be created after the server has started (i.e.
+    inside the test function)
 
 ## Background
 
