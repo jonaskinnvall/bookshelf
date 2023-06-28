@@ -2,7 +2,10 @@
 
 ## 📝 Your Notes
 
-Elaborate on your learnings here in `INSTRUCTIONS.md`
+In this exercise I learned about:
+
+- End to end testing (e2e testing) with Cypress
+- How to write an e2e test with Cypress and RTL-Cypress
 
 ## Background
 
